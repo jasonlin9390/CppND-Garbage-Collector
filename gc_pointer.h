@@ -106,8 +106,6 @@ Pointer<T,size>::Pointer(T *t){
         atexit(shutdown);
     first = false;
 
-    // TODO: Implement Pointer constructor
-    // Lab: Smart Pointer Project Lab
     addr = t;
     if (size > 0){
     	arraySize = size;
@@ -125,8 +123,6 @@ Pointer<T,size>::Pointer(T *t){
 template< class T, int size>
 Pointer<T,size>::Pointer(const Pointer &ob){
 
-    // TODO: Implement Pointer constructor
-    // Lab: Smart Pointer Project Lab
 	typename std::list<PtrDetails<T> >::iterator p;
 	p = findPtrInfo(ob.addr);
 	p->refcount += 1;
@@ -140,8 +136,6 @@ Pointer<T,size>::Pointer(const Pointer &ob){
 template <class T, int size>
 Pointer<T, size>::~Pointer(){
     
-    // TODO: Implement Pointer destructor
-    // Lab: New and Delete Project Lab
 	typename std::list<PtrDetails<T> >::iterator p;
 	p = findPtrInfo(addr);
 	if(p->refcount)
@@ -155,9 +149,6 @@ Pointer<T, size>::~Pointer(){
 template <class T, int size>
 bool Pointer<T, size>::collect(){
 
-	// TODO: Implement collect function
-	// LAB: New and Delete Project Lab
-	// Note: collect() will be called in the destructor
 	bool memfreed = false;
 
 	typename std::list<PtrDetails<T> >::iterator it = refContainer.begin();
@@ -181,8 +172,6 @@ bool Pointer<T, size>::collect(){
 template <class T, int size>
 T *Pointer<T, size>::operator=(T *t){
 
-    // TODO: Implement operator==
-    // LAB: Smart Pointer Project Lab
 	typename std::list<PtrDetails<T> >::iterator p;
 	p = findPtrInfo(addr);
 	p->refcount -= 1;
@@ -204,8 +193,6 @@ T *Pointer<T, size>::operator=(T *t){
 template <class T, int size>
 Pointer<T, size> &Pointer<T, size>::operator=(Pointer &rv){
 
-	// TODO: Implement operator==
-	// LAB: Smart Pointer Project Lab
 	typename std::list<PtrDetails<T> >::iterator p;
 
 	p = findPtrInfo(addr);

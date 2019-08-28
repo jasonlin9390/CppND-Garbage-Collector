@@ -20,7 +20,6 @@ array, then arraySize contains its size */
 
     PtrDetails(T *ptr, unsigned size = 0): memPtr(ptr), arraySize(size)
     {
-    	// TODO: Implement PtrDetails
     	refcount = 1;
     	if( size > 0)
     		isArray = true;
@@ -34,6 +33,5 @@ template <class T>
 bool operator==(const PtrDetails<T> &ob1,
                 const PtrDetails<T> &ob2)
 {
-    // TODO: Implement operator==
 	return (ob1.memPtr == ob2.memPtr);
 }
